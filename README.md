@@ -1,6 +1,7 @@
 # svelte-simple-counter
 
 :warning: **Currently not compatible with Firefox and Safari**
+
 A simple animated numeric counter based on css @property
 
 ## Usage
