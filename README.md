@@ -1,38 +1,25 @@
-# create-svelte
+# svelte-simple-counter
 
-Everything you need to build a Svelte project, powered by [`create-svelte`](https://github.com/sveltejs/kit/tree/master/packages/create-svelte).
+:warning: **Currently not compatible with Firefox and Safari**
+A simple animated numeric counter based on css @property
 
-## Creating a project
+## Usage
 
-If you're seeing this, you've probably already done this step. Congrats!
+``` tsx
+import { SimpleCounter } from '@skillissue/svelte-simple-counter';
 
-```bash
-# create a new project in the current directory
-npm create svelte@latest
-
-# create a new project in my-app
-npm create svelte@latest my-app
+<SimpleCounter 
+    value={value} 
+    delay={delay} 
+    transitionDuration={duration} 
+    transitionTiming={timing} 
+/>
 ```
 
-## Developing
-
-Once you've created a project and installed dependencies with `npm install` (or `pnpm install` or `yarn`), start a development server:
-
-```bash
-npm run dev
-
-# or start the server and open the app in a new browser tab
-npm run dev -- --open
-```
-
-## Building
-
-To create a production version of your app:
-
-```bash
-npm run build
-```
-
-You can preview the production build with `npm run preview`.
-
-> To deploy your app, you may need to install an [adapter](https://kit.svelte.dev/docs/adapters) for your target environment.
+### Configuration options
+| Name               | Type                       | Description                                                                                         |
+| ------------------ | -------------------------- | --------------------------------------------------------------------------------------------------- |
+| value              | number                     | **Required** - displayed variable number                                                            |
+| delay              | number                     | animation start delay in milliseconds - defaults to 100                                             |
+| transitionDuration | number                     | duration in milliseconds of the transition on number change - defaults to 1000                      |
+| transitionTiming   | string                     | transition css timing function - defaults to 'ease'                                                 |

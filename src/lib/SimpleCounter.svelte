@@ -1,6 +1,6 @@
 <script lang="ts">
 import { onMount } from 'svelte';
-export let num: number;
+export let value: number;
 export const delay: number = 100;
 export const transitionDuration: number = 1000;
 export const transitionTiming: string = 'ease';
@@ -12,7 +12,7 @@ onMount(() => {
 })
 </script>
 
-<span class="counter" style="--num: {mounted ? num : 0}; --duration: {`${transitionDuration}ms`}; --timing: {transitionTiming}"></span>
+<span class="counter" style="--num: {mounted ? value : 0}; --duration: {`${transitionDuration}ms`}; --timing: {transitionTiming}"></span>
 
 <style>
 @property --num {
