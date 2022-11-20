@@ -7,7 +7,7 @@ A simple animated numeric counter based on css @property
 ## Usage
 
 ``` tsx
-import { SimpleCounter } from '@skillissue/svelte-simple-counter';
+import { SimpleCounter } from 'svelte-simple-counter';
 
 <SimpleCounter 
     value={value} 
