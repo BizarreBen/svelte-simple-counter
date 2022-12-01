@@ -1,1 +1,1 @@
-export { default as SimpleCounter } from './SimpleJSCounter.svelte';
+export { default as SimpleCounter } from './SimpleCounter.svelte';
