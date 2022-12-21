@@ -9,8 +9,7 @@ const config = {
 
 	kit: {
 		adapter: adapter()
-	},
-	optimizeDeps: { include: ['modernizr'] }
+	}
 };
 
 export default config;

@@ -1,9 +1,10 @@
 {
 	"name": "svelte-simple-counter",
-	"version": "0.0.7",
+	"version": "0.0.8",
 	"scripts": {
 		"dev": "vite dev",
 		"build": "svelte-kit sync && svelte-package",
+		"publish": "svelte-kit sync && svelte-package && cd package && npm publish && cd ..",
 		"prepublishOnly": "echo 'Did you mean to publish `./package/`, instead of `./`?' && exit 1",
 		"test": "playwright test",
 		"check": "svelte-kit sync && svelte-check --tsconfig ./tsconfig.json",
@@ -16,7 +17,6 @@
 		"@sveltejs/adapter-auto": "next",
 		"@sveltejs/kit": "next",
 		"@sveltejs/package": "next",
-		"@types/modernizr": "^3.5.3",
 		"@typescript-eslint/eslint-plugin": "^5.27.0",
 		"@typescript-eslint/parser": "^5.27.0",
 		"eslint": "^8.16.0",

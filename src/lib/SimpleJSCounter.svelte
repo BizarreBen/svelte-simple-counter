@@ -6,27 +6,29 @@
 	export let transitionDuration: number = 1000;
 	export let transitionTiming: string = 'ease';
 	let computed = 0;
-    let prev = 0;
+	let prev = 0;
 	let easingFunction: bezier.EasingFunction;
-    let intervalId: NodeJS.Timer;
+	let intervalId: NodeJS.Timer;
 	let transitionData: number[];
 
-	console.log(`${delay} - ${transitionDuration} - ${transitionTiming}`)
-    function compute() {
-        clearInterval(intervalId);
-        const start = Date.now();
-        prev = computed;
-		computed = Math.round(prev + (easingFunction(Math.min((Date.now() - start)/transitionDuration, 1.0)) * (value - prev)));
+	function compute() {
+		clearInterval(intervalId);
+		const start = Date.now();
+		prev = computed;
+		computed = Math.round(
+			prev +
+				easingFunction(Math.min((Date.now() - start) / transitionDuration, 1.0)) * (value - prev)
+		);
 		if (computed === value) return;
-        intervalId = setInterval(() => {
-			let eased = (easingFunction(Math.min((Date.now() - start)/transitionDuration, 1.0)));
+		intervalId = setInterval(() => {
+			let eased = easingFunction(Math.min((Date.now() - start) / transitionDuration, 1.0));
 			computed = Math.round(prev + eased * (value - prev));
 			if (eased === 1) {
 				clearInterval(intervalId);
 				computed = value;
 			}
-        }, transitionDuration / Math.abs(value - start) );
-    }
+		}, transitionDuration / Math.abs(value - start));
+	}
 
 	switch (transitionTiming) {
 		case 'ease':
@@ -49,17 +51,24 @@
 				easingFunction = bezier(0.25, 0.1, 0.25, 1);
 				break;
 			}
-			transitionData = transitionTiming.replace(/[^\d.,]/g, '').split(',').map(x => parseFloat(x));
-			console.log(`${transitionData[0]} - ${transitionData[1]} - ${transitionData[2]} - ${transitionData[3]}`);
-			easingFunction = bezier(transitionData[0], transitionData[1], transitionData[2], transitionData[3]);
+			transitionData = transitionTiming
+				.replace(/[^\d.,]/g, '')
+				.split(',')
+				.map((x) => parseFloat(x));
+			easingFunction = bezier(
+				transitionData[0],
+				transitionData[1],
+				transitionData[2],
+				transitionData[3]
+			);
 			break;
 	}
 
-    $: value, compute();
+	$: value, compute();
 	onMount(() => {
-        setTimeout(() => {
-            compute();
-        }, delay);
+		setTimeout(() => {
+			compute();
+		}, delay);
 	});
 </script>
 

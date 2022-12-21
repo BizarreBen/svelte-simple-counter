@@ -11,4 +11,10 @@
 <p>Visit <a href="https://kit.svelte.dev">kit.svelte.dev</a> to read the documentation</p>
 
 <div>{numbah}</div>
-<SimpleCounter prefersCSS={false} value={numbah} delay={200} transitionDuration={5000} transitionTiming={'cubic-bezier(.2,.71,.13,1.66)'} />
+<SimpleCounter
+	prefersCSS={false}
+	value={numbah}
+	delay={200}
+	transitionDuration={5000}
+	transitionTiming={'cubic-bezier(.2,.71,.13,1.66)'}
+/>
