@@ -11,6 +11,8 @@
 	let intervalId: NodeJS.Timer;
 	let transitionData: number[];
 
+	export let customDisplay : null | ((x: number) => any) = null;
+
 	function compute() {
 		clearInterval(intervalId);
 		const start = Date.now();
@@ -72,4 +74,4 @@
 	});
 </script>
 
-<span class="counter">{computed}</span>
+<span class="counter">{customDisplay != null ? customDisplay(computed) : computed}</span>

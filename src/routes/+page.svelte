@@ -2,8 +2,8 @@
 	import SimpleCounter from '$lib/SimpleCounter.svelte';
 	let numbah = 0;
 	setInterval(() => {
-		numbah = Math.ceil(Math.random() * 10000);
-	}, 10000);
+		numbah = Math.ceil(Math.random() * 1000);
+	}, 1000);
 </script>
 
 <h1>Welcome to your library project</h1>
@@ -12,9 +12,8 @@
 
 <div>{numbah}</div>
 <SimpleCounter
-	prefersCSS={false}
 	value={numbah}
 	delay={200}
-	transitionDuration={5000}
-	transitionTiming={'cubic-bezier(.2,.71,.13,1.66)'}
+	transitionDuration={900}
+	transitionTiming={'cubic-bezier(.84,-1.11,.37,2.03)'}
 />
